@@ -1,0 +1,192 @@
+name: Release Automation Support Request
+description: Request help with CI/CD pipeline issues, build failures, or deployment problems
+title: '[RA] '
+labels: ['ra-support']
+assignees: []
+body:
+  - type: dropdown
+    id: category
+    attributes:
+      label: Issue Category
+      description: Select the category that best describes your issue
+      options:
+        - CI/CD Pipeline Failure
+        - Build/Compilation Error
+        - Deployment Issue
+        - Dependency/Package Problem
+        - Configuration Issue
+        - Permission/Access Problem
+        - Performance/Timeout Issue
+        - Other
+      default: 0
+    validations:
+      required: true
+  
+  - type: input
+    id: category-other
+    attributes:
+      label: Other Category
+      description: If you selected "Other" above, please specify
+      placeholder: Describe the issue category
+    validations:
+      required: false
+  
+  - type: input
+    id: repository
+    attributes:
+      label: Repository
+      description: Which repository is affected?
+      placeholder: owner/repository-name
+    validations:
+      required: true
+  
+  - type: input
+    id: branch
+    attributes:
+      label: Branch
+      description: Which branch is affected?
+      placeholder: main, develop, feature/branch-name
+    validations:
+      required: false
+  
+  - type: input
+    id: workflow
+    attributes:
+      label: Workflow/Action
+      description: Which GitHub Action or workflow is failing?
+      placeholder: deploy.yml, ci.yml, build-and-test
+    validations:
+      required: false
+  
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      description: Which environment is affected?
+      options:
+        - development
+        - staging
+        - production
+        - all environments
+      default: 0
+    validations:
+      required: false
+  
+  - type: textarea
+    id: problem-description
+    attributes:
+      label: Problem Description
+      description: Provide a clear and concise description of what went wrong
+      placeholder: Describe the issue you're experiencing
+    validations:
+      required: true
+  
+  - type: textarea
+    id: error-message
+    attributes:
+      label: Error Message/Code
+      description: Paste the exact error message here
+      placeholder: Paste error message...
+      render: shell
+    validations:
+      required: false
+  
+  - type: textarea
+    id: log-output
+    attributes:
+      label: Log Output
+      description: Paste relevant log output here
+      placeholder: Paste logs...
+      render: shell
+    validations:
+      required: false
+  
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps That Led to the Issue
+      description: List the steps that led to this issue
+      placeholder: |
+        1. First step
+        2. Second step
+        3. Third step
+    validations:
+      required: false
+  
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+      placeholder: Describe what should have happened
+    validations:
+      required: false
+  
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: Actual Behavior
+      description: What actually happened?
+      placeholder: Describe what actually happened
+    validations:
+      required: false
+  
+  - type: checkboxes
+    id: recent-changes
+    attributes:
+      label: Recent Changes
+      description: What changed recently that might be related?
+      options:
+        - label: Code changes
+        - label: Configuration updates
+        - label: Dependency updates
+        - label: Infrastructure changes
+        - label: No recent changes
+    validations:
+      required: false
+  
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: Urgency Level
+      description: How urgent is this issue?
+      options:
+        - Critical (Production down)
+        - High (Blocking development)
+        - Medium (Impacting workflow)
+        - Low (Nice to have)
+      default: 2
+    validations:
+      required: true
+  
+  - type: checkboxes
+    id: attempted-solutions
+    attributes:
+      label: Attempted Solutions
+      description: What have you already tried?
+      options:
+        - label: Reran the workflow
+        - label: Checked documentation
+        - label: Reviewed recent commits
+        - label: Cleared cache
+        - label: Contacted team member
+    validations:
+      required: false
+  
+  - type: textarea
+    id: other-attempted
+    attributes:
+      label: Other Attempted Solutions
+      description: Any other solutions you've tried
+      placeholder: Describe other solutions you've attempted
+    validations:
+      required: false
+  
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Add any other context about the problem here (screenshots, links, etc.)
+      placeholder: Any additional information that might help
+    validations:
+      required: false
